@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import CButton from '@/components/CButton.vue'
 import CTabs from '@/components/CTabs.vue'
+import CSearch from '@/components/CSearch.vue'
 
 // Для табов
 const tabs = [
@@ -22,6 +23,7 @@ const tabs = [
   },
 ]
 const tab = ref(tabs[0])
+const model = ref('sas')
 </script>
 
 <template>
@@ -31,17 +33,20 @@ const tab = ref(tabs[0])
       <CButton>
         Добавить в сделки
       </CButton>
-      <CButton variant="icon">
-        <div style="height: 1rem; width: 1rem">
-          :D
-        </div>
-      </CButton>
+      <CButton icon="../assets/icons/heart.svg" />
     </div>
     <div class="component">
       <h2>Табы</h2>
       <CTabs v-model="tab" :tabs="tabs" />
       <CTabs v-model="tab" :tabs="tabs" variant="nav" />
       {{ tab }}
+    </div>
+    <div class="component">
+      <h2>
+        Поисковое поле
+      </h2>
+      <CSearch v-model="model" />
+      {{ model }}
     </div>
   </div>
 </template>
