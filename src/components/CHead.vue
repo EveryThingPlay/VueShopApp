@@ -24,7 +24,7 @@ const tabs = [
   },
 ]
 
-const currentTab = ref(tabs.find(tab => tab.to === router.currentRoute.value.path))\
+const currentTab = ref(tabs.find(tab => tab.to === router.currentRoute.value.path))
 </script>
 
 <template>

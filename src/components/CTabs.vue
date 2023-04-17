@@ -13,7 +13,7 @@ type variant = 'text' | 'nav'
 
 defineProps({
   tabs: { type: Array<tab> },
-  modelValue: { type: Object as PropType<tab>, required: true },
+  modelValue: { type: Object as PropType<tab> },
   variant: { type: String as PropType<variant>, default: 'text' },
 })
 
@@ -34,7 +34,7 @@ function icon(val: string) {
   <div v-if="variant === 'text'" class="tabs-container">
     <div
       v-for="val in tabs" :key="val.id" class="tab"
-      :class="modelValue.id === val.id ? 'active' : null" @click="selectTab(val)"
+      :class="modelValue?.id === val.id ? 'active' : null" @click="selectTab(val)"
     >
       {{ val.title }}
     </div>
@@ -42,7 +42,7 @@ function icon(val: string) {
   <div v-if="variant === 'nav'" class="nav-container">
     <div
       v-for="val in tabs" :key="val.id" class="tab"
-      :class="modelValue.id === val.id ? 'active' : null" @click="selectTab(val)"
+      :class="modelValue?.id === val.id ? 'active' : null" @click="selectTab(val)"
     >
       <img v-if="val.icon" :src="icon(val.icon)" width="20">
       {{ val.title }}
