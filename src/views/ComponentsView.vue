@@ -4,6 +4,8 @@ import CButton from '@/components/CButton.vue'
 import CTabs from '@/components/CTabs.vue'
 import CSearch from '@/components/CSearch.vue'
 import CHead from '@/components/CHead.vue'
+import ProductCard from '@/components/ProductCard.vue'
+import type { Order } from '@/components/ProductCard.vue'
 
 // Для табов
 const tabs = [
@@ -25,6 +27,24 @@ const tabs = [
 ]
 const tab = ref(tabs[0])
 const model = ref('sas')
+
+const order = {
+  card: {
+    quantity: 3,
+    unit: 'piece',
+    price: 1000,
+    currency: 'RUR',
+  },
+  data: {
+    type: 'Аукцион',
+    title: 'Брус',
+    geo: 'Москва',
+    seller: 'Торговый дом ГОСТ',
+    category: 'Категория',
+    description: 'Какое-то оооочень длинное описание, которое мне лень придумывать',
+    image: 'fake_image',
+  },
+} as Order
 </script>
 
 <template>
@@ -51,6 +71,9 @@ const model = ref('sas')
         <CSearch v-model="model" />
         {{ model }}
       </div>
+    </div>
+    <div class="component">
+      <ProductCard :order="order" />
     </div>
   </div>
 </template>

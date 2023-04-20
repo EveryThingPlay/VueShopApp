@@ -38,7 +38,7 @@ const currentTab = ref(tabs.find(tab => tab.to === router.currentRoute.value.pat
   </div>
 </template>
 
-<style>
+<style scoped>
 .container{
   position:relative;
   width:100%;
